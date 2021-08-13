@@ -15,17 +15,8 @@ function indent() {
   esac
 }
 
-cd $BUILD_DIR/vendor/liblouis
+cd $BUILD_DIR/packages/actions/ssocr
 echo "-----> Installing LibLouis makefile"
-# Autoreconfig
-echo "-----> Running autoreconfig"
-  autoreconf -f -i  2>&1 | indent
-
-# configure
-if [ -f configure ]; then
-  echo "-----> Configuring"
-  ./configure --prefix=$BUILD_DIR/vendor/liblouis-exec 2>&1 | indent
-fi
 
 # make
 echo "-----> Compiling with Make"
